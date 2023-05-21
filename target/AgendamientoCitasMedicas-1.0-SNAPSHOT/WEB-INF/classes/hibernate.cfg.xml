@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <!-- Configuración de la conexión a la base de datos -->
+        <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+        <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/Proyecto1</property>
+        <property name="hibernate.connection.username">postgres</property>
+        <property name="hibernate.connection.password">morlo</property>
+
+        <!-- Configuración de dialecto para PostgreSQL -->
+        <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+
+        <!-- Configuración de mapeo de clases -->
+        <mapping class="com.example.model.Usuario"/>
+
+        <!-- Opcional: Mostrar SQL generado por Hibernate -->
+        <property name="hibernate.show_sql">true</property>
+
+        <!-- Opcional: Formatear SQL generado por Hibernate -->
+        <property name="hibernate.format_sql">true</property>
+    </session-factory>
+</hibernate-configuration>
+

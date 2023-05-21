@@ -1,0 +1,5 @@
+com\example\dao\UsuarioDAO.class
+com\example\config\HibernateUtil.class
+com\mycompany\agendamientocitasmedicas\JakartaRestConfiguration.class
+com\mycompany\agendamientocitasmedicas\resources\JakartaEE9Resource.class
+com\example\model\Usuario.class
