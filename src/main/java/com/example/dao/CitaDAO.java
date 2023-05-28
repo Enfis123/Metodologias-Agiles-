@@ -20,8 +20,9 @@ public class CitaDAO {
 
     public List<Cita> listarCitas() {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-            // Obtener la lista de citas usando Hibernate
-            return session.createQuery("FROM Cita", Cita.class).list();
+            // Consulta para obtener la lista de citas usando Hibernate
+            String consulta = "FROM Cita";
+            return session.createQuery(consulta, Cita.class).list();
         } catch (Exception e) {
             e.printStackTrace();
             return null;
@@ -30,3 +31,4 @@ public class CitaDAO {
 
     // Agrega otros métodos CRUD según tus necesidades
 }
+

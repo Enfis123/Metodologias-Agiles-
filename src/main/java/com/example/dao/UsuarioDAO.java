@@ -18,25 +18,29 @@ import java.util.List;
 public class UsuarioDAO {
 
     public List<Usuario> listarUsuarios() {
-        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-            // Obtener la lista de usuarios usando Hibernate
-            return session.createQuery("FROM Usuario", Usuario.class).list();
-        } catch (Exception e) {
-            e.printStackTrace();
-            return null;
-        }
+    try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+        // Consulta para obtener la lista de usuarios usando Hibernate
+        String consulta = "FROM Usuario";
+        return session.createQuery(consulta, Usuario.class).list();
+    } catch (Exception e) {
+        e.printStackTrace();
+        return null;
     }
+}
+
 
     public void guardarUsuario(Usuario usuario) {
-        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-            Transaction transaction = session.beginTransaction();
-            // Guardar el usuario en la base de datos usando Hibernate
-            session.save(usuario);
-            transaction.commit();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+    try {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        Transaction transaction = session.beginTransaction();
+        // Guardar el usuario en la base de datos usando Hibernate
+        session.save(usuario);
+        transaction.commit();
+    } catch (Exception e) {
+        e.printStackTrace();
     }
+}
+
 
     public void actualizarUsuario(Usuario usuario) {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {

@@ -15,7 +15,7 @@
     <title>Usuarios</title>
 </head>
 <body>
-    <h1>Listar Pacientes</h1>
+    <h1>Lista de  Usuarios</h1>
     <table>
         <tr>
             <th>ID</th>
@@ -25,6 +25,7 @@
         <%-- Obtener la lista de usuarios desde el DAO --%>
         <% UsuarioDAO usuarioDAO = new UsuarioDAO(); %>
         <% List<Usuario> usuarios = usuarioDAO.listarUsuarios(); %>
+        
         <%-- Iterar sobre la lista de usuarios y mostrar los datos --%>
         <c:forEach var="usuario" items="<%=usuarios%>">
             <tr>

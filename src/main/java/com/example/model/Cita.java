@@ -4,13 +4,9 @@
  */
 package com.example.model;
 
-/**
- *
- * @author Natasha
- */
 import java.io.Serializable;
-import javax.persistence.*;
 import java.util.Date;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "cita")
@@ -29,11 +25,18 @@ public class Cita implements Serializable {
     @Column(name = "fecha")
     private Date fecha;
 
+    // Constructor por defecto
     public Cita() {
     }
 
-    // Getters and Setters
+    // Constructor con todos los atributos
+    public Cita(String nombrePaciente, String nombreMedico, Date fecha) {
+        this.nombrePaciente = nombrePaciente;
+        this.nombreMedico = nombreMedico;
+        this.fecha = fecha;
+    }
 
+    // Getters y Setters
     public Long getId() {
         return id;
     }
@@ -65,4 +68,10 @@ public class Cita implements Serializable {
     public void setFecha(Date fecha) {
         this.fecha = fecha;
     }
+
+    @Override
+    public String toString() {
+        return "Cita{" + "id=" + id + ", nombrePaciente=" + nombrePaciente + ", nombreMedico=" + nombreMedico + ", fecha=" + fecha + '}';
+    }
+    
 }
